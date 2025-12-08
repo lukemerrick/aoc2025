@@ -13,10 +13,9 @@ nim r src/day01_part1.nim
 ```
 
 ## Layout
-
 - `aoc2025.nimble` – basic Nimble project file.
 - `src/` – solution scripts, e.g. `day01_part1.nim`.
-- `src/day00_part1_TEMPLATE.nim` - starting template useful for input parsing
+- `src/day00_part1_TEMPLATE.nim` - starting template that handles input parsing
 - `inputs/` – downloaded puzzle inputs
 
 ## Input conventions
@@ -27,4 +26,3 @@ I download the Advent of Code input for each day and save it as:
 - `inputs/day02.txt`
 
 This makes the template work nicely.
-
