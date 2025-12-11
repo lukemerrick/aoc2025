@@ -9,8 +9,8 @@ const
   InputPath = Path(instantiationInfo(-1).filename).splitFile().dir / Path("inputs")
   InputFile = InputPath / Path(&"day{Day:02}.txt")
 
-proc solve(input: string): int =
-  var result = 0
+func solve(input: string): int =
+  result = 0
   var position = 50
   var quotient: int
   for line in input.strip().splitLines():
@@ -19,7 +19,6 @@ proc solve(input: string): int =
     let value = direction * distance
     (quotient, position) = divmod(100 + position + value, 100)
     result += abs(quotient - 1)
-  return result
 
 when isMainModule:
   let data = readFile($InputFile)

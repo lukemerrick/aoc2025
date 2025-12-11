@@ -11,7 +11,7 @@ const
   InputFile = InputPath / Path(&"day{Day:02}.txt")
 
 proc solve(input: string): int =
-  var return_val = 0
+  result = 0
   let ranges = input.strip().split(',')
   for r in ranges:
     let lo_hi = r.split('-')
@@ -45,9 +45,8 @@ proc solve(input: string): int =
 
         if all_equal:
           # echo fmt"adding: {val} | chunksize: {chunksize} | items: {items}"
-          return_val += val
+          result += val
           break  # Important: No double-counting the same value!
-  return return_val
 
 when isMainModule:
   let data = readFile($InputFile)

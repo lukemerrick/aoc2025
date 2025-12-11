@@ -7,10 +7,10 @@ const
   Day = 2
   Part = 1
   InputPath = Path(instantiationInfo(-1).filename).splitFile().dir / Path("inputs")
-  InputFile = InputPath / Path(&"day{Day:02}_test.txt")
+  InputFile = InputPath / Path(&"day{Day:02}.txt")
 
 proc solve(input: string): int =
-  var return_val = 0
+  result = 0
   let ranges = input.strip().split(',')
   for r in ranges:
     let lo_hi = r.split('-')
@@ -24,8 +24,7 @@ proc solve(input: string): int =
       let (left_half, right_half) = divmod(val, divisor)
       if left_half == right_half:
         echo fmt"adding: {val} | divisor: {divisor} | left: {left_half} | right: {right_half}"
-        return_val += val
-  return return_val
+        result += val
 
 when isMainModule:
   let data = readFile($InputFile)

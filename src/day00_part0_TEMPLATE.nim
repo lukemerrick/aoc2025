@@ -1,6 +1,5 @@
 import std/strformat
 import std/strutils
-import std/macros
 import std/paths
 
 const
@@ -9,13 +8,14 @@ const
   InputPath = Path(instantiationInfo(-1).filename).splitFile().dir / Path("inputs")
   InputFile = InputPath / Path(&"day{Day:02}.txt")
 
-proc solve(input: string): int =
+func solve(input: string): int =
   ## Simple example: sum all integers, one per line.
   result = 0
   for line in input.splitLines():
     let trimmed = line.strip()
     if trimmed.len == 0: continue
     result += parseInt(trimmed)
+  return result
 
 when isMainModule:
   let data = readFile($InputFile)
