@@ -58,9 +58,8 @@ proc solve(input: string): int =
   let boundary_ids = build_sorted_boundaries(raw_fresh_slices)
 
   # Count the of items per range from the boundary ids.
-  for i in 0..<boundary_ids.len - 1:
-    if i mod 2 == 0:
-      result += boundary_ids[i + 1] - boundary_ids[i] + 1
+  for i in countup(0, boundary_ids.len - 1, 2):
+    result += boundary_ids[i + 1] - boundary_ids[i] + 1
   
 
 when isMainModule:
